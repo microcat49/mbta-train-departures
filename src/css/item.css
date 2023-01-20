@@ -1,0 +1,9 @@
+.item {
+    border: solid;
+    padding: 20px;
+    margin: 20px;
+}
+
+.item-text {
+    margin: 0;
+}

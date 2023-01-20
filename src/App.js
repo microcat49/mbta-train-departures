@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import OuterLayout from './components/outer_layout'
+
+import StopProvider from './data/stop'
+import LineProvider from './data/line'
+import DirectionProvider from './data/direction'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DirectionProvider>
+      <LineProvider>
+        <StopProvider>
+          <OuterLayout />
+        </StopProvider>
+      </LineProvider>
+    </DirectionProvider>
   );
 }
 

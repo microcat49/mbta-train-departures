@@ -1,0 +1,12 @@
+.pick-list {
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.pick-list-header {
+    display: flex;
+    justify-content: center;
+}

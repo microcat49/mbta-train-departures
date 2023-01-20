@@ -1,0 +1,7 @@
+.outer-layout {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
