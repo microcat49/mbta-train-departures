@@ -7,8 +7,6 @@ const useDirections = () => {
     const { selectedLine } = useContext(LineContext)
     const { stop } = useContext(StopContext);
 
-    console.log(selectedLine?.directions)
-
     if (selectedLine && selectedLine.directions && stop) {
         return selectedLine.directions
     }

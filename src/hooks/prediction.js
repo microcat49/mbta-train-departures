@@ -11,13 +11,14 @@ const usePrediction = () => {
     const { direction } = useContext(DirectionContext)
     const { stop } = useContext(StopContext)
 
-    const [prediction, setPrediction] = useState({})
+    const [prediction, setPrediction] = useState([])
  
     useEffect(() => {
         const fetchData = async () => {
             let data; 
             if (stop && selectedLine && direction) {
                 data = await getPrediction(stop.id, selectedLine.id, direction.id)
+                console.log(data)
             } else {
                 data = []
             }

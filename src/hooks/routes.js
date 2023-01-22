@@ -1,6 +1,4 @@
-import { useEffect, useState, useContext } from "react"
-
-import { LineContext } from "../data/line"
+import { useEffect, useState } from "react"
 
 import getAllRoutes from '../api/routes'
 
@@ -12,7 +10,7 @@ const useRoutes = () => {
             const data = await getAllRoutes()
             setRoutes(data)
         }
-        
+
         fetchData()
             .catch(error => console.log(error))
     }, [])

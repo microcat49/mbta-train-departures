@@ -25,6 +25,8 @@ export default function PickList(props) {
         )
     } else if (props.type === 'direction') {
         itemContents = props.items.map((item, index) =>
+            // The MBTA uses the index in the array in the array as the ID number for the direction on a line.
+            // For isntance when we want the prediction of the next train for a direction we need the index from this data to query for that direction.
             <Item key={index} setId={() => setDirection({id: index, name: item})} name={item} />
         )
     }
