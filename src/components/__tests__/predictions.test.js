@@ -20,9 +20,9 @@ describe('Predictions component', () => {
 
     const renderPage = (stop, direction, line) => {
         return render(
-            <DirectionContext.Provider value={{direction: direction}}>
+            <DirectionContext.Provider value={{selectedDirection: direction}}>
                 <LineContext.Provider value={{selectedLine: line}}>
-                    <StopContext.Provider value={{stop: stop}}>
+                    <StopContext.Provider value={{selectedStop: stop}}>
                         <Prediction />
                     </StopContext.Provider>
                 </LineContext.Provider>

@@ -26,9 +26,9 @@ describe('Pick lists component', () => {
 
     const renderPage = (setDirection=()=>{}, setSelectedLine=()=>{}, setStop=()=>{}) => {
         return render(
-            <DirectionContext.Provider value={{setDirection: setDirection}}>
+            <DirectionContext.Provider value={{setSelectedDirection: setDirection}}>
                 <LineContext.Provider value={{setSelectedLine: setSelectedLine}}>
-                    <StopContext.Provider value={{setStop: setStop}}>
+                    <StopContext.Provider value={{setSelectedStop: setStop}}>
                         <PickLists />
                     </StopContext.Provider>
                 </LineContext.Provider>

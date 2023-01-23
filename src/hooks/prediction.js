@@ -8,8 +8,8 @@ import getPrediction from '../api/prediction'
 
 const usePrediction = () => {
     const { selectedLine } = useContext(LineContext)
-    const { direction } = useContext(DirectionContext)
-    const { stop } = useContext(StopContext)
+    const { selectedDirection } = useContext(DirectionContext)
+    const { selectedStop } = useContext(StopContext)
 
     const [prediction, setPrediction] = useState([])
  
@@ -18,8 +18,8 @@ const usePrediction = () => {
             
             let data; 
             
-            if (stop.id && selectedLine.id && (direction.id === 1 || direction.id === 0)) {
-                data = await getPrediction(stop.id, selectedLine.id, direction.id) 
+            if (selectedStop.id && selectedLine.id && (selectedDirection.id === 1 || selectedDirection.id === 0)) {
+                data = await getPrediction(selectedStop.id, selectedLine.id, selectedDirection.id) 
                 if(data.length === 0) {
                     data = {}
                 } else {
@@ -34,7 +34,7 @@ const usePrediction = () => {
         
         fetchData()
             .catch(error => console.log(error))
-    }, [stop, selectedLine, direction])
+    }, [selectedStop, selectedLine, selectedDirection])
 
     return prediction
 }

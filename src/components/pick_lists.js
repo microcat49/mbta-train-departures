@@ -79,8 +79,8 @@ const initialState = {
 
 export default function PickLists() {
     const {setSelectedLine} = useContext(LineContext);
-    const {setStop} = useContext(StopContext);
-    const {setDirection} = useContext(DirectionContext);
+    const {setSelectedStop} = useContext(StopContext);
+    const {setSelectedDirection} = useContext(DirectionContext);
 
     const [state, dispatch] = useReducer(piskListsReducer, initialState);
 
@@ -108,8 +108,8 @@ export default function PickLists() {
 
     useEffect(() => {
         setSelectedLine({name: state.selectedLineName, id: state.selectedLineID})
-        setStop({name: state.selectedStopName, id: state.selectedStopID})
-        setDirection({name: state.selectedDirectionName, id: state.selectedDirectionID})
+        setSelectedStop({name: state.selectedStopName, id: state.selectedStopID})
+        setSelectedDirection({name: state.selectedDirectionName, id: state.selectedDirectionID})
     }, [state.selectedDirectionID, state.selectedLineID, state.selectedStopID])
 
     return (

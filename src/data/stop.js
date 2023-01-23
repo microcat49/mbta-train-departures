@@ -3,10 +3,10 @@ import { createContext, useState } from "react"
 export const StopContext = createContext(null)
 
 const StopProvider = (props) => {
-    const [stop, setStop] = useState(null)
+    const [selectedStop, setSelectedStop] = useState(null)
 
     return (
-        <StopContext.Provider value={{stop, setStop}}>
+        <StopContext.Provider value={{selectedStop, setSelectedStop}}>
             {props.children}
         </StopContext.Provider>
     )

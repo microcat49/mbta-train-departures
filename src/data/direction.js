@@ -3,10 +3,10 @@ import { createContext, useState } from "react"
 export const DirectionContext = createContext(null)
 
 const DirectionProvider = (props) => {
-    const [direction, setDirection] = useState('')
+    const [selectedDirection, setSelectedDirection] = useState('')
 
     return (
-        <DirectionContext.Provider value={{direction, setDirection}}>
+        <DirectionContext.Provider value={{selectedDirection, setSelectedDirection}}>
             {props.children}
         </DirectionContext.Provider>
     )

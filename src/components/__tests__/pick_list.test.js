@@ -2,10 +2,6 @@ import {render, fireEvent, waitFor} from '@testing-library/react'
 
 import PickList from '../pick_list'
 
-import {StopContext} from '../../data/stop'
-import {LineContext} from '../../data/line'
-import {DirectionContext} from '../../data/direction'
-
 describe('Testing the pick list component', () => {
     const renderPage = (type, items, itemSelected) => {
         return render(

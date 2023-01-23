@@ -26,7 +26,7 @@ describe('Predictions Hook', () => {
         return ({ children }) => (
             <DirectionContext.Provider value={{direction: direction}}>
                 <LineContext.Provider value={{selectedLine: selectedLine}}>
-                    <StopContext.Provider value={{stop: stop}}>
+                    <StopContext.Provider value={{selectedStop: stop}}>
                         { children }
                     </StopContext.Provider>
                 </LineContext.Provider>
