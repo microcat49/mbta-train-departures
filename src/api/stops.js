@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+import { MBTA_URL } from './settings'
+
 const getAllStops = async (line) => {
         const response = await axios.get(
-                `https://api-v3.mbta.com/stops?filter%5Broute%5D=${line}`
+                `${MBTA_URL}/stops?filter%5Broute%5D=${line}`
         )
 
         return response.data.data

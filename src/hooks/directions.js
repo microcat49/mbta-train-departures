@@ -3,11 +3,10 @@ import { useContext} from "react"
 import { LineContext } from "../data/line"
 import { StopContext } from "../data/stop"
 
-const useDirections = () => {
+const useDirections = (shouldRetrieveDirections) => {
     const { selectedLine } = useContext(LineContext)
-    const { stop } = useContext(StopContext);
 
-    if (selectedLine && selectedLine.directions && stop) {
+    if (shouldRetrieveDirections) {
         return selectedLine.directions
     }
 

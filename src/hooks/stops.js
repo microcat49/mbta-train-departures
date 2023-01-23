@@ -6,24 +6,25 @@ import { DirectionContext } from '../data/direction'
 
 import getAllStops from '../api/stops'
 
-const useStops = () => {
+const useStops = (getStops) => {
     const [ stops, setStops ] = useState([])
 
     const {selectedLine} = useContext(LineContext);
-    const {setStop} = useContext(StopContext);
-    const {setDirection} = useContext(DirectionContext)
+    const {setDirection} = useContext(DirectionContext);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getAllStops(selectedLine?.id)
-            setStops(data)
-            setStop(null)
+        if (getStops) {
             setDirection(null)
+            const fetchData = async () => {
+                const data = await getAllStops(selectedLine?.id)
+                setStops(data)
+                
+            }
+
+            fetchData()
+                .catch(error => console.log(error))
         }
-        
-        fetchData()
-            .catch(error => console.log(error))
-    }, [selectedLine?.id])
+    }, [selectedLine?.id, getStops])
     return stops
 
 }

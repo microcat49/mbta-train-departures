@@ -15,10 +15,10 @@ const usePrediction = () => {
  
     useEffect(() => {
         const fetchData = async () => {
+            
             let data; 
-            if (stop && selectedLine && direction) {
-                data = await getPrediction(stop.id, selectedLine.id, direction.id)
-                console.log(data)
+            if (stop.id && selectedLine.id && direction.name) {
+                data = await getPrediction(stop.id, selectedLine.id, direction.id) 
             } else {
                 data = []
             }
