@@ -41,13 +41,13 @@ describe('Predictions Hook', () => {
     })
 
     it('returns an empty array when direction, selected line, and stop are empty objects', () => {
-        mock.onGet(`${MBTA_URL}/predictions?filter%5Bstop%5D=1&filter%5Broute%5D=1&filter%5Bdirection_id%5D=1&sort=arrival_time`).reply(200, {
-            data: [ {attributes: {arrival_time: '2023-01-20T16:37:11-05:00'}} ]
+        mock.onGet(`${MBTA_URL}/predictions?filter%5Bstop%5D=1&filter%5Broute%5D=1&filter%5Bdirection_id%5D=1&sort=departure_time`).reply(200, {
+            data: [ {attributes: {departure_time: '2023-01-20T16:37:11-05:00'}} ]
         });
 
         const wrapper = page({name:"North", id: 1}, {id: 1}, {id: 1})
         const { result }  = renderHook(() => usePrediction(), {wrapper})
 
-        waitFor(() => expect(result.current).toEqual([ {attribues: {arrival_time: '2023-01-20T16:37:11-05:00'}} ]))
+        waitFor(() => expect(result.current).toEqual([ {attribues: {departure_time: '2023-01-20T16:37:11-05:00'}} ]))
     })
 })

@@ -96,7 +96,6 @@ export default function PickLists() {
 
     useEffect(() => {
         if (state.selectedLineID) {
-            console.log(state.selectedLineID)
             const fetchData = async () => {
                 const data = await getAllStops(state.selectedLineID)
                 dispatch({type: ACTIONS.STOPS_SUCCESS, data: data})

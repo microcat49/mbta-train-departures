@@ -13,7 +13,7 @@ export default function Prediction() {
 
     const prediction = usePrediction()
 
-    let arrivalTime;
+    let departureTime;
     let direction;
     
     if (
@@ -21,31 +21,31 @@ export default function Prediction() {
         stop.name && 
         prediction && 
         prediction.attributes && 
-        prediction.attributes.arrival_time &&
+        prediction.attributes.departure_time &&
         selectedDirection &&
         selectedDirection.name
     ) {
-        arrivalTime = new Date(prediction.attributes.arrival_time).toLocaleTimeString()
+        departureTime = new Date(prediction.attributes.departure_time).toLocaleTimeString()
         direction = selectedDirection.name
 
-    // If we are getting a valid prediction object but not an Arrival Time a train is coming but we do not know when.
+    // If we are getting a valid prediction object but not an Departure Time a train is coming but we do not know when.
     } else if (
         stop && 
         stop.name && 
         prediction && 
         prediction.attributes && 
-        !prediction.attributes.arrival_time
+        !prediction.attributes.departure_time
     ) {
-        arrivalTime = 'Unknown'
+        departureTime = 'Unknown'
         direction = selectedDirection.name
     } else {
-        arrivalTime = ''
+        departureTime = ''
     }
 
     return (
         <div className="prediction">
             <h1>Stop: {stop?.name}</h1>
-            <h2>Estimated Arrival Time: { arrivalTime }</h2>
+            <h2>Estimated Departure Time: { departureTime }</h2>
             <h3>Direction: {direction}</h3>
             <h3>Status: {prediction?.attributes?.status}</h3>
         </div>
