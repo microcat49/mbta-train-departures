@@ -7,7 +7,7 @@ const getPrediction = async (stop, route, direction) => {
                 `${MBTA_URL}/predictions?filter%5Bstop%5D=${stop}&filter%5Broute%5D=${route}&filter%5Bdirection_id%5D=${direction}&sort=departure_time`
         )
 
-        return response.data.data[0]
+        return response.data.data
 }
 
 export default getPrediction

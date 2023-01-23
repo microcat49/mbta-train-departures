@@ -17,10 +17,16 @@ const usePrediction = () => {
         const fetchData = async () => {
             
             let data; 
-            if (stop.id && selectedLine.id && direction.name) {
+            
+            if (stop.id && selectedLine.id && (direction.id === 1 || direction.id === 0)) {
                 data = await getPrediction(stop.id, selectedLine.id, direction.id) 
+                if(data.length === 0) {
+                    data = {}
+                } else {
+                    data = data[0]
+                }
             } else {
-                data = []
+                data = null
             }
             
             setPrediction(data)
