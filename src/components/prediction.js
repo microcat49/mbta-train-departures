@@ -29,7 +29,7 @@ export default function Prediction() {
         departureTime = new Date(prediction.attributes.departure_time).toLocaleTimeString()
         direction = selectedDirection.name
 
-    // If we are getting a valid prediction object but no valid departure time it's because train do not depart from this stop.
+    // If we are getting a valid prediction object but no valid departure time. It's because trains do not depart from this stop.
     } else if (
         stop && 
         stop.name && 
@@ -43,7 +43,7 @@ export default function Prediction() {
         departureTime = 'Trains do not depart from this stop'
         direction = selectedDirection.name
 
-    // If we are getting a valid prediction object but no predictions a train is coming but it's so far in the future we do not know when.
+    // If we are getting a valid prediction response but no predictions a train is coming but it's so far in the future we do not know when.
     } else if (
         stop && 
         stop.name && 
